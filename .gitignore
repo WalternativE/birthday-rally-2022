@@ -24,3 +24,5 @@ yarn-error.log*
 
 data/
 __pycache__/
+
+!build/
