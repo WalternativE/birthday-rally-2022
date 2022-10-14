@@ -1,36 +1,21 @@
 import './App.scss';
 
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Route,
-} from "react-router-dom";
+import { useState } from 'react';
 
 import BirthdayRallyMap from './BirthdayRallyMap';
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <BirthdayRallyMap />,
-  },
-]);
+import FirstChallenge from './FirstChallenge';
 
 function App() {
-  return(
-    <RouterProvider router={router} />
+  const [isFirstChallengeMet, setIsFirstChallengeMet] = useState(false);
+
+  return (
+    <div className='main-container h-full w-full bg-gray-50'>
+      {isFirstChallengeMet
+        ? <BirthdayRallyMap />
+        : <FirstChallenge onAttemptSuccess={() => setIsFirstChallengeMet(true)} />
+      }
+    </div>
   );
-}
-
-function Home() {
-  return <h1 className='text-3xl font-bold underline'>Home</h1>;
-}
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
 }
 
 export default App;

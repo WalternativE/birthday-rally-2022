@@ -1,0 +1,27 @@
+# mandatory parameters
+######################
+process: ./process.py
+pyramid:
+  grid: mercator
+
+input:
+    # from_command_line --> use the -i switch in CLI and provide path to file
+    # raster_file: path/to/raster
+    # vector_file: path/to/vector
+    pseudocolor_sar: ./data/s1b_vienna_pseudocolor.tif
+output:
+  format: PNG
+  path: ./public/tile_directory
+  bands: null
+  dtype: null
+
+
+
+# optional parameters
+#####################
+zoom_levels:
+    min: 11
+    max: 15
+
+# free parameters
+#################
